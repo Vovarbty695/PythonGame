@@ -14,26 +14,21 @@ generate_world()
 while run:
     for events in p.event.get():
         if events.type == p.QUIT:
-            run = False  # Зупиняємо цикл
+            run = False  
 
-    # Перевіряємо, чи Pygame все ще активний, щоб уникнути помилок
-    if not p.get_init():
-        break
+    screen.fill(BACKGROUND)  
 
-    screen.fill(BACKGROUND)  # Заповнюємо фон
-
-    draw_world(screen)  # Малюємо світ
-    player()            # Малюємо гравця
+    draw_world(screen) 
+    player()           
 
 
     fps = clock.get_fps()
 
-    # Виводимо FPS в консоль
+    
     print(f"FPS: {fps:.2f}")
 
-    p.display.flip()    # Оновлюємо екран
+    p.display.flip()    
 
     clock.tick(60)
 
-# Закриваємо Pygame після завершення циклу
 p.quit()
